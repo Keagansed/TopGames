@@ -1,0 +1,54 @@
+@media(max-width:767px){
+    .desktop-nav {
+      display: none;
+    }
+  }
+  @media(min-width:768px){
+    .mobile-nav {
+      display: none; 
+      position: sticky;
+      top: -200px;
+      padding-top: 200px;
+      height: 250px;  
+    }
+  }
+
+.container {
+height: 100vh;
+width: 90% !important;
+max-width: 90% !important;
+overflow-y: scroll;
+overflow-x: hidden;
+}
+
+.nav {
+position: fixed;
+width: 100%;
+left: 0;
+z-index: 1000;
+}
+
+.nav.hide-nav {
+display: none; 
+}
+
+.nav-button {
+  background-color: rgba($color: #000000, $alpha: 0.0); margin-left: 1%; height: 100%; padding: 0.8% 1% 0% 1%; color: white !important;
+}
+
+.nav-button:hover {
+  cursor: pointer;
+  background-color: #8fc30046;
+  border-radius: 15px;
+}
+
+.nav-button-selected {
+  background-color: #90c300; margin-left: 1%; height: 100%; padding: 0.8% 1% 0% 1%; color: white !important;
+
+  border-radius: 15px;
+}
+
+.mobile-dialog-button {
+  display: block;
+  height: 40px
+}

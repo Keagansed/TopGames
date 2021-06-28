@@ -1,0 +1,24 @@
+<div class="center">
+
+    <div class="row">
+        <div *ngFor="let game of games$ | async; let i = index">
+            <div *ngIf="game.categories.includes(URL.toLowerCase()) || ( URL.toLowerCase() === 'other' && (game.categories.includes('virtual') || game.categories.includes('fun') || game.categories.includes('ball')))" class="col-lg-4 img-hover-zoom img-hover-zoom--brightness">
+                <div *ngIf="showPlay.get(game.id)" class="img-hover-zoom img-hover-zoom--brightness hover-div">
+                    <img src="../../../assets/play_button.png" class="play-button">
+                    <div class="center">
+                        <p class="game-name">{{game.name}}</p>
+                    </div>
+                </div>
+                <p *ngIf="jackpots.get(game.id) !== undefined" class="jackpot">£{{jackpots.get(game.id)}}</p>
+                <img src="{{game.image}}" [ngClass]="{'bordered':showPlay.get(game.id), 'not-bordered':!showPlay.get(game.id), 'reflection-content':true}" class="game-image" (mouseover)="showPlay.set(game.id,true)" (mouseout)="showPlay.set(game.id,false)">
+                <p *ngIf="this.URL !== 'top' && game.categories.includes('top')" [ngClass]="{'top-banner':!showPlay.get(game.id),'top-banner-hover':showPlay.get(game.id)}"><strong>TOP</strong></p>
+                <p *ngIf="this.URL !== 'new' && game.categories.includes('new')" [ngClass]="{'new-banner':!showPlay.get(game.id),'new-banner-hover':showPlay.get(game.id)}"><strong>NEW</strong></p>
+            </div>
+        </div>
+        <div class="center">
+            <div *ngIf="isEmpty()" style="margin-top: 100px; font-size: 30px;">
+                There are currently no games in this category
+            </div>
+        </div>
+    </div>
+</div>

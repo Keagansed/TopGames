@@ -1,0 +1,28 @@
+<div class="container" (scroll)="onScroll($event)">
+
+<mat-toolbar class="desktop-nav nav" [class.hide-nav]="hideNav" style="background-color: rgba(0, 0, 0, 0.719);
+backdrop-filter: blur(10px) !important;">
+  <a (click)="router.navigate(['/home/top'])"[ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'top'}" >Top Games</a>
+  <a (click)="router.navigate(['/home/new'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'new'}" >New Games</a>
+  <a (click)="router.navigate(['/home/slots'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'slots'}">Slots</a>
+  <a (click)="router.navigate(['/home/live'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'live'}" >Live</a>
+  <a (click)="router.navigate(['/home/blackjack'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'blackjack'}" >Blackjack</a>
+  <a (click)="router.navigate(['/home/roulette'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'roulette'}" >Roulette</a>
+  <a (click)="router.navigate(['/home/table'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'table'}" >Table</a>
+  <a (click)="router.navigate(['/home/poker'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'poker'}" >Poker</a>
+  <a (click)="router.navigate(['/home/other'])" [ngClass]="{'nav-button': true, 'nav-button-selected': URL === 'other'}" >Other</a>
+</mat-toolbar>
+
+<div class="nav" [class.hide-nav]="hideNav">
+  <mat-toolbar md-scroll-shrink class="mobile-nav" style="background-color: rgba(0, 0, 0, 0.719);
+  backdrop-filter: blur(10px) !important;">
+    <img src="../assets/funnel.svg" (click)="openFilterDialog()" style="height: 30px; margin-right: 20px;">
+    <span style="color: #90c300;">{{mobileTitle}}</span>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>
+
+</div>
+
+
+
